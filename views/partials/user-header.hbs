@@ -14,17 +14,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cart</a>
                     </li>
+                    {{#if user}}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Orders</a>
                     </li>
+                    {{/if}}
                     
                 </ul>
                 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Account
+   {{#if user}}
+    {{user.username}}
+    {{else}}
+     Account
+   {{/if}}
+    
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/login">login</a>
+     {{#if user}}
+     <a class="dropdown-item" href="/logout">logout</a>
+    
+    {{else}}
+      <a class="dropdown-item" href="/login">login</a>
+     
+   {{/if}}
+    
    
   </div>
 </div>
